@@ -1,0 +1,273 @@
+/**
+ * iRRT CSS
+ * @author: Akeda Bagus <admin@gedex.web.id>
+ * @date: June 2012
+ */
+
+/* reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a[href], label[for], select, 
+input[type=checkbox], input[type=radio] {
+	cursor: pointer;
+}
+
+button, input[type=button], input[type=image], 
+input[type=reset], input[type=submit] {
+	padding: 0;
+	overflow: visible;
+	cursor: pointer;
+}
+
+button::-moz-focus-inner, 
+input[type=button]::-moz-focus-inner, 
+input[type=image]::-moz-focus-inner, 
+input[type=reset]::-moz-focus-inner, 
+input[type=submit]::-moz-focus-inner {
+	border: 0;
+}
+
+/* accessibility nav */
+#accessibility-nav {
+	position: absolute;
+	top: 0;
+	left: -9999em;
+	z-index: 1000;
+}
+
+#accessibility-nav a {
+	position: absolute;
+	top: 0;
+	white-space: nowrap;
+}
+
+#accessibility-nav a:active,
+#accessibility-nav a:focus {
+	left: 9999em;
+}
+
+.hide {
+	position: absolute !important;
+	left: -9999em !important;
+}
+
+/* clearfix */
+.clearfix:after,
+.container:after,
+form .row:after {
+	content: ".";
+	display: block;
+	visibility: hidden;
+	clear: both;
+	height: 0;
+}
+
+.ie7 .clearfix {
+	zoom: 1; 
+}
+
+/* default styles */
+html, body {
+	position: relative;
+	height: 100%;
+	min-height: 100%;
+}
+
+body {
+	font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+	font-size: 13px;
+	background-color: #c0c0c0;
+}
+
+button {
+	padding: 5px;
+	background: transparent;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+	-moz-box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+	box-shadow: 0 0 5px rgba(0, 0, 0, .8);
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#fff) to(#efefef));
+	background: -webkit-linear-gradient(#fff, #efefef);
+	background: -moz-linear-gradient(#fff, #efefef);
+	background: -ms-linear-gradient(#fff, #efefef);
+	background: -o-linear-gradient(#fff, #efefef);
+	background: linear-gradient(#fff, #efefef);
+	-pie-background: linear-gradient(#fff, #efefef);
+	border: none;
+}
+
+.oldie button {
+	box-shadow: 0 0 10px #bbb;
+	position: relative;
+	behavior: url(../js/PIE.htc);;
+}
+
+button.active {
+	background: -moz-linear-gradient(top, #fff 0%, #c0c0c0 25%, #999 75%, #fff 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(25%,#c0c0c0), color-stop(75%,#999), color-stop(100%,#fff)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #fff 0%,#c0c0c0 25%,#999 75%,#fff 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #fff 0%,#c0c0c0 25%,#999 75%,#fff 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #fff 0%,#c0c0c0 25%,#999 75%,#fff 100%); /* IE10+ */
+	background: linear-gradient(top, #fff 0%,#c0c0c0 25%,#999 75%,#fff 100%); /* W3C */
+	-pie-background: linear-gradient(top, #fff 0%,#c0c0c0 25%,#999 75%, #fff 100%);}
+
+/* common */
+.container {
+	position: relative;
+	width: 90%;
+	margin: 0 auto;
+	padding: 10px 0;
+}
+
+.numeric {
+	text-align: right;
+}
+
+/* left sidebar */
+#left-sidebar {
+	float: left;
+	width: 240px;
+}
+
+.widget-window {
+	margin-bottom: 30px;
+	-webkit-border-top-left-radius: 4px;
+	-webkit-border-top-right-radius: 4px;
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-topright: 4px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	border-top: 1px solid #999;
+	-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .5);
+	-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, .5);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, .5);
+	background-color: #efefef;
+}
+
+.widget-window .content {
+	padding: 20px;
+}
+
+.oldie .widget-window {
+	box-shadow: 0 5px 10px #bbb;
+	position: relative;
+	behavior: url(../js/PIE.htc);
+}
+
+.widget-window header {
+	padding: 5px 0 5px 20px;
+	background: #c0c0c0;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#c0c0c0) to(#999));
+	background: -webkit-linear-gradient(#c0c0c0, #999);
+	background: -moz-linear-gradient(#c0c0c0, #999);
+	background: -ms-linear-gradient(#c0c0c0, #999);
+	background: -o-linear-gradient(#c0c0c0, #999);
+	background: linear-gradient(#c0c0c0, #999);
+	-pie-background: linear-gradient(#c0c0c0, #999);
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #333;
+	font-weight: bold;
+	text-shadow: 0 1px rgba(255, 255, 255, 0.3);
+}
+
+.widget-window .content {
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#fff) to(#efefef));
+	background: -webkit-linear-gradient(#fff, #efefef);
+	background: -moz-linear-gradient(#fff, #efefef);
+	background: -ms-linear-gradient(#fff, #efefef);
+	background: -o-linear-gradient(#fff, #efefef);
+	background: linear-gradient(#fff, #efefef);
+	-pie-background: linear-gradient(#fff, #efefef);
+}
+
+.widget-window .row {
+	margin-bottom: 10px;
+}
+
+.widget-window label {
+	float: left;
+	width: 45%;
+	vertical-align: middle;
+	text-align: left;
+}
+
+.widget-window input,
+.widget-window select {
+	float: right;
+	width: 45%;
+	vertical-align: middle;
+	padding: 2px;
+	margin: 0;
+}
+
+/* main canvas */
+#main {
+	margin: 0 74px 0 250px;
+	padding: 0;
+	position: relative;
+}
+
+#canvas-drawer {
+	width: 100%;
+	background-color: #fff;
+}
+
+/* right sidebar */
+#right-sidebar {
+	float: right;
+	width: 64px;
+}
+
+.widget-button {
+	margin-bottom: 30px;
+}
+
+#speed-slider {
+	height: 100px;
+	margin: 20px 0 20px 16px;
+	horizontal-align: middle;
+}

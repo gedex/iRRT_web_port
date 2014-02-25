@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charshet="utf-8">
+	<title>iRRT</title>
+	<link rel="stylesheet" href="css/jquery.ui.theme.css"/>
+	<link rel="stylesheet" href="css/jquery.ui.slider.css"/>
+	<link rel="stylesheet" href="css/irrt.css"/>
+</head>
+<body>
+	<div class="container" id="irrt-app">
+		<aside class="sidebar" id="left-sidebar">
+			<section class="widget-window">
+				<header>Map Objects</header>
+				<div class="content">
+					<button type="button" title="Starting point" class="draw-shape" id="starting-point">
+						<img src="images/Actions-flag-green-icon.png">
+					</button>
+					<button type="button" title="Finishing point" class="draw-shape" id="finishing-point">
+						<img src="images/Actions-flag-red-icon.png">
+					</button>
+					<button type="button" title="Draw square" class="draw-shape" id="draw-square">
+						<img src="images/BlackSquare.png">
+					</button>
+					<button type="button" title="Draw circle" class="draw-shape" id="draw-circle">
+						<img src="images/BlackCircle.png">
+					</button>
+				</div>
+			</section>
+			<section class="widget-window">
+				<header>Preferences</header>
+				<div class="content">
+					<form>
+						<div class="row">
+							<label for="iteration">Algorithm</label>
+							<select name="algorithm" id="algorithm">
+								<option value="rrt">RRT</option>
+							</select>
+						</div>
+						<div class="row">
+							<label for="edge-length">EdgeLength</label>
+							<select name="edge-length" id="edge-length">
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="8">8</option>
+								<option value="10">10</option>
+								<option value="15">15</option>
+								<option value="20">20</option>
+								<option value="25">25</option>
+								<option value="99999">99999</option>
+							</select>
+						</div>
+						<div class="row">
+							<label for="iteration">Iteration</label>
+							<select name="iteration" id="iteration">
+								<option value="5000">500</option>
+								<option value="1000">1000</option>
+								<option value="1500">1500</option>
+								<option value="2000">2000</option>
+								<option value="5000">5000</option>
+								<option value="10000">10000</option>
+								<option value="100000">100000</option>
+								<option value="999999">999999</option>
+							</select>
+						</div>
+						<div class="row">
+							<label for="try-goal">TryGoal</label>
+							<select name="try-goal" id="try-goal">
+								<option value="0">Never</option>
+								<option value="1">1%</option>
+								<option value="10">10%</option>
+								<option value="20">20%</option>
+								<option value="25">25%</option>
+								<option value="33">33%</option>
+								<option value="50">50%</option>
+								<option value="100">Always</option>
+							</select>
+						</div>
+					</form>
+				</div>
+			</section>
+			<section class="widget-window">
+				<header>Performance</header>
+				<div class="content">
+					<form>
+						<div class="row">
+							<label for="iteration">Iteration</label>
+							<input type="text" name="iteration" id="iteration" class="numeric" readonly="readonly">
+						</div>
+						<div class="row">
+							<label for="node-count">NodeCount</label>
+							<input type="text" name="node-count" id="node-count" class="numeric" readonly="readonly">
+						</div>
+						<div class="row">
+							<label for="path-length">PathLength</label>
+							<input type="text" name="path-length" id="path-length" class="numeric" readonly="readonly">
+						</div>
+					</form>
+				</div>
+			</section>
+		</aside>
+		<aside class="sidebar" id="right-sidebar">
+			<section class="widget-button">
+				<button type="button" title="New map" id="new-map">
+					<img src="images/Files-New-File-icon.png">
+				</button>
+				<button type="button" title="Save map" id="save-map">
+					<img src="images/export-icon.png">
+				</button>
+				<button type="button" title="Open map" id="open-map">
+					<img src="images/import-icon.png">
+				</button>
+			</section>
+			<section class="widget-button">
+				<button type="button" title="Run">
+					<img src="images/Play.png">
+				</button>
+				<button type="button" title="Refresh">
+					<img src="images/Action-reload-icon.png">
+				</button>
+				<button type="button" title="Pause">
+					<img src="images/Pause-Normal-Red-icon.png">
+				</button>
+				<button type="button" title="Stop">
+					<img src="images/Stop-Normal-icon.png">
+				</button>
+			</section>
+			<section class="widget-button">
+				<button type="button" title="Speed up" id="speed-up">
+					<img src="images/Action-arrow-blue-double-up-icon.png">
+				</button>
+				<div id="speed-slider"></div>
+				<button type="button" title="Slow down" id="slow-down">
+					<img src="images/Action-arrow-blue-double-down-icon.png">
+				</button>
+			</section>
+		</aside>
+		<div id="main">
+			<canvas id="canvas-drawer"></canvas>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+	<script src="js/underscore-1.3.1.js"></script>
+	<script src="js/backbone-min.js"></script>
+	<script src="js/processing-1.3.6.min.js"></script>
+	<script src="js/irrt.js"></script>
+</body>
