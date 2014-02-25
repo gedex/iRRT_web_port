@@ -6,3 +6,7 @@ iRRT web port
 &mdash; http://correll.cs.colorado.edu/?p=1623
 
 This is my attempt to port iRRT (written in Java) into a single static HTML web application (using Backbone and Processing.js).
+
+## Demo
+
+http://gedex.github.io/iRRT_web_port
